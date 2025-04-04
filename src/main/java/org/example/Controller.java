@@ -11,6 +11,7 @@ public class Controller
         newVacation.Calculations();
         return newVacation.getVacationPay();
     }
+    // For storing the query parameters
     public static class Data
     {
         public double averageSalary;
