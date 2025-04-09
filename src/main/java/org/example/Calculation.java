@@ -3,17 +3,19 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.Locale;
 public class Calculation
 {
-    public Calculation(double averageSalary, int vacationDays, String date)
+    public Calculation(double averageSalary, int vacationDays, Date date)
     {
         this.averageSalary = averageSalary;
         this.vacationDays = vacationDays;
         if(date != null)
         {
-            startDate = LocalDate.parse(date, formatter);
+            startDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
         }
     }
     // Variables for calculations
@@ -50,7 +52,6 @@ public class Calculation
             // Not counting the weekend days and public holidays
             for (int count = 0; count < vacationDays; count++)
             {
-                vacationPay+=100;
                 if((startDate.getDayOfWeek() == DayOfWeek.SATURDAY)||(startDate.getDayOfWeek() == DayOfWeek.SUNDAY))
                 {
                     excessiveDaysCount++;
