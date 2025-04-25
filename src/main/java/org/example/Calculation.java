@@ -1,4 +1,5 @@
 package org.example;
+
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.time.DayOfWeek;
@@ -7,6 +8,7 @@ import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Locale;
+
 public class Calculation
 {
     public Calculation(double averageSalary, int vacationDays, Date date)
